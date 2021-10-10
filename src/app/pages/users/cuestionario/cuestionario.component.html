@@ -1,0 +1,49 @@
+<div class="bg-pattern bg-dark fondo"></div>
+
+<div class="container">
+  <span id="pagCuestionario"></span>
+  <h2>Cuestionario de capacitacíón</h2>
+  <h5>Descripción del cuestionario</h5>
+  <div class="card text-justify">
+    <div class="card-header bg-primary">
+      <h5 class="card-title text-white">
+        <div class="row">
+          <div class="col-sm-6">
+            <i class="fa fa-check-square-o"></i>99 Preguntas
+          </div>
+          <div class="col-sm-6 text-right">
+            <a href="" role="button" class="volver"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>Regresar</a>
+          </div>
+        </div>
+      </h5>
+    </div>
+    <div class="card-body bg-transparent">
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let pregunta of preguntas, index as a">
+            <td class="preg" data-points="1">
+              <h4>{{ a + 1 }}) {{ pregunta.pregunta }}</h4><span class="msg_marcas resalta"></span><br>
+              <table class="table table-hover">
+                <tbody>
+                  <tr class="resp" *ngFor="let item of ['a','b','c','d'], index as i" [ngClass]="{'resp_marca': flag, '': !flag}" (click)="seleccioando()">
+                    <td data-resp="0"><strong>{{item }}</strong>) Repuesta {{ i + 1 }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><input type="hidden" id="idtest" value="77"><input class="btn btn-success btn-lg corregir" type="button"
+                name="Corregir" id="Corregir" value="Guardar Repuestas"><span class="resultado btn btn-lg"></span><span
+                class="descarga-test"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="text-justify">&nbsp;</p>
+</div>

@@ -1,0 +1,23 @@
+.bg-pattern {
+    background-image: url(https://img.freepik.com/foto-gratis/fondo-acuarela-pintada-mano-forma-cielo-nubes_24972-1095.jpg?size=626&ext=jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-dark {
+    background-color: #343a40!important;
+}
+
+.fondo{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+.scroll-of {
+    overflow: hidden !important;
+}
+
+img{
+    position: relative;
+}
