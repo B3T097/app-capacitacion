@@ -1,0 +1,9 @@
+
+.d-flex-button{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bb-1{
+    border-bottom: solid 1px;
+}

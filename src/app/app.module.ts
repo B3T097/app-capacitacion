@@ -7,6 +7,7 @@ import { CuestionarioComponent } from './pages/users/cuestionario/cuestionario.c
 import { LoginComponent } from './pages/users/login/login.component';
 import { LeccionesComponent } from './pages/users/lecciones/lecciones.component';
 import { LeccionComponent } from './pages/users/leccion/leccion.component';
+import { ResultadosComponent } from './pages/users/resultados/resultados.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LeccionComponent } from './pages/users/leccion/leccion.component';
     CuestionarioComponent,
     LoginComponent,
     LeccionesComponent,
-    LeccionComponent
+    LeccionComponent,
+    ResultadosComponent
   ],
   imports: [
     BrowserModule,
