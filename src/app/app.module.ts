@@ -8,6 +8,9 @@ import { LoginComponent } from './pages/users/login/login.component';
 import { LeccionesComponent } from './pages/users/lecciones/lecciones.component';
 import { LeccionComponent } from './pages/users/leccion/leccion.component';
 import { ResultadosComponent } from './pages/users/resultados/resultados.component';
+import { MenuLateralComponent } from './pages/CMS/componentes/menu-lateral/menu-lateral.component';
+import { HeaderComponent } from './pages/CMS/componentes/header/header.component';
+import { UsuariosComponent } from './pages/CMS/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { ResultadosComponent } from './pages/users/resultados/resultados.compone
     LoginComponent,
     LeccionesComponent,
     LeccionComponent,
-    ResultadosComponent
+    ResultadosComponent,
+    MenuLateralComponent,
+    HeaderComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
