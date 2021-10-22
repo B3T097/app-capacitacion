@@ -3,14 +3,14 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="margin-top: 20vh;">
                 <div class="card-body">
                     <h5 class="card-title">Su puntaje es de 75</h5>
                     <div class="progress mt-5" style="height: 3rem">
                         <div [ngClass]="cambioclase()" class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <p class="card-text">Felicidades ha aprobado este curso!.</p>
-                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    <p class="card-text mt-3 felicitacion">Felicidades ha aprobado este curso!!</p>
+                    <div class="grupo-btn">
                         <a href="assets/documents/certificado.pdf" download class="btn btn-outline-dark">Descargar Certificado</a>
                         <a routerLink="/lecciones" class="btn btn-outline-info">Ir a cursos</a>
                     </div>
