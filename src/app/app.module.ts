@@ -11,6 +11,8 @@ import { ResultadosComponent } from './pages/users/resultados/resultados.compone
 import { MenuLateralComponent } from './pages/CMS/componentes/menu-lateral/menu-lateral.component';
 import { HeaderComponent } from './pages/CMS/componentes/header/header.component';
 import { UsuariosComponent } from './pages/CMS/usuarios/usuarios.component';
+import { LoginCMSComponent } from './pages/CMS/login-cms/login-cms.component';
+import { ComponentesModule } from './pages/CMS/componentes/componentes.module';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { UsuariosComponent } from './pages/CMS/usuarios/usuarios.component';
     ResultadosComponent,
     MenuLateralComponent,
     HeaderComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    LoginCMSComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ComponentesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
