@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginCMSComponent } from './pages/CMS/login-cms/login-cms.component';
+import { UsuariosComponent } from './pages/CMS/usuarios/usuarios.component';
 import { CuestionarioComponent } from './pages/users/cuestionario/cuestionario.component';
 import { LeccionComponent } from './pages/users/leccion/leccion.component';
 import { LeccionesComponent } from './pages/users/lecciones/lecciones.component';
@@ -27,6 +29,14 @@ const routes: Routes = [
   {
     path: 'resultados/:leccion',
     component: ResultadosComponent
+  },
+  {
+    path: 'CMS/login',
+    component: LoginCMSComponent
+  },
+  {
+    path: 'CMS/usuarios',
+    component: UsuariosComponent
   },
   {
     path: '**',
