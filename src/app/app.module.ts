@@ -22,10 +22,7 @@ import { ComponentesModule } from './pages/CMS/componentes/componentes.module';
     LeccionesComponent,
     LeccionComponent,
     ResultadosComponent,
-    MenuLateralComponent,
-    HeaderComponent,
-    UsuariosComponent,
-    LoginCMSComponent
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,10 @@ import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HeaderComponent,
+    MenuLateralComponent
+  ],
   exports: [
     HeaderComponent,
     MenuLateralComponent
@@ -15,4 +18,5 @@ import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
     CommonModule
   ]
 })
+
 export class ComponentesModule { }
