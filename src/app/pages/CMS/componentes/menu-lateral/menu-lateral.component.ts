@@ -15,5 +15,8 @@ export class MenuLateralComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+    
+}
+function toggle() {
+  
 }
