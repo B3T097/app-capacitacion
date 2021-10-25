@@ -13,6 +13,7 @@ import { HeaderComponent } from './pages/CMS/componentes/header/header.component
 import { UsuariosComponent } from './pages/CMS/usuarios/usuarios.component';
 import { LoginCMSComponent } from './pages/CMS/login-cms/login-cms.component';
 import { ComponentesModule } from './pages/CMS/componentes/componentes.module';
+import { UserEditComponent } from './pages/CMS/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ComponentesModule } from './pages/CMS/componentes/componentes.module';
     LeccionesComponent,
     LeccionComponent,
     ResultadosComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
