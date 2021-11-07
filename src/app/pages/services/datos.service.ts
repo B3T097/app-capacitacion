@@ -15,12 +15,6 @@ export class DatosService {
     return this.http.get<responseLogin>(`${ this.baseUrl }login/${ login.correo }/${ login.password }`);
   }
 
-  getLecciones( id: number ){
-    let url: string = `${ this.baseUrl }lecciones/${ id }`;
-    // return url;
-    return this.http.get<any>( url );
-  }
-
   ValidarSession(){
     let session: string|null = sessionStorage.getItem('login');
     if ( session != null && session == "true" ) {
@@ -44,5 +38,15 @@ export class DatosService {
       id = Number( sessionStorage.getItem('idUser') );
     }
     return id;
+  }
+
+  getLecciones( id: number ){
+    let url: string = `${ this.baseUrl }lecciones/${ id }`;
+    return this.http.get<any>( url );
+  }
+
+  getLeccion( id: number ){
+    let url: string = `${ this.baseUrl }leccion/${ id }`;
+    return this.http.get<any>( url );
   }
 }
