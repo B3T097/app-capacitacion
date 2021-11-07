@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { user } from '../../interfacez/user.interface';
@@ -11,6 +12,7 @@ import { DatosService } from '../../services/datos.service';
 export class LoginComponent {
 
   login: user = {
+    id: 0,
     nombre: '',
     correo: '',
     password: '',
@@ -42,14 +44,16 @@ export class LoginComponent {
 
     this.service.VaidateLogin( this.login )
       .subscribe( validacion => {
-        console.log(validacion);
         if ( !validacion.success ) {
           this.alerta = true;
           setTimeout(() => {
             this.alerta = false;
           }, 1500);
         } else {
+          let datos: user = validacion.data[0];
           sessionStorage.setItem('login', 'true');
+          sessionStorage.setItem( 'idUser', datos.id + '' );
+          sessionStorage.setItem( 'nameUser', datos.nombre );
           this.routing.navigate(['lecciones']);
         }
       } );

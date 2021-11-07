@@ -5,10 +5,10 @@ export interface responseLogin {
 }
 
 export interface user {
-    id?:            number;
+    id:             number;
     nombre:         string;
     correo:         string;
-    password:       string;
+    password?:      string;
     area:           string;
     puesto:         string;
 }
