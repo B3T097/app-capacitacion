@@ -14,4 +14,35 @@ export class DatosService {
   VaidateLogin( login: user ) {
     return this.http.get<responseLogin>(`${ this.baseUrl }login/${ login.correo }/${ login.password }`);
   }
+
+  getLecciones( id: number ){
+    let url: string = `${ this.baseUrl }lecciones/${ id }`;
+    // return url;
+    return this.http.get<any>( url );
+  }
+
+  ValidarSession(){
+    let session: string|null = sessionStorage.getItem('login');
+    if ( session != null && session == "true" ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  get Nombre(){
+    let nombre: string = '';
+    if ( sessionStorage.getItem('nameUser') != null ) {
+      nombre = sessionStorage.getItem('nameUser') + '';
+    }
+    return nombre;
+  }
+
+  get IdUser(){
+    let id: number = 0;
+    if ( sessionStorage.getItem('idUser') != null ) {
+      id = Number( sessionStorage.getItem('idUser') );
+    }
+    return id;
+  }
 }

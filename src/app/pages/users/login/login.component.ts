@@ -51,6 +51,8 @@ export class LoginComponent {
           }, 1500);
         } else {
           let datos: user = validacion.data[0];
+          console.log(datos);
+          
           sessionStorage.setItem('login', 'true');
           sessionStorage.setItem( 'idUser', datos.id + '' );
           sessionStorage.setItem( 'nameUser', datos.nombre );

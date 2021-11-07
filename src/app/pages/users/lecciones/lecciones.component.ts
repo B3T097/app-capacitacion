@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DatosService } from '../../services/datos.service';
 
 @Component({
   selector: 'app-lecciones',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeccionesComponent implements OnInit {
 
-  constructor() { }
+  nombre: string|null = '';
+  lecciones: any[] = [];
+
+  constructor(  private service: DatosService,
+    public routing: Router ) { }
 
   ngOnInit(): void {
+    if ( !this.service.ValidarSession() ) {
+      this.routing.navigate(['/']);
+    } else{
+      this.nombre = this.service.Nombre;
+    }
+
+    this.service.getLecciones( this.service.IdUser )
+      .subscribe(
+        resp => {
+          console.log( 'Lecciones', resp );
+          this.lecciones = resp.data;
+        }
+      );
   }
 
+  cerrarSession(){
+    sessionStorage.clear();
+    this.routing.navigate(['/']);
+  }
 }

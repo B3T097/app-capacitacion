@@ -4,10 +4,26 @@
         <div class="col-1"></div>
         <div class="col-10">
             <div class="card mt-5 mb-3" >
-                <div class="card-header text-center">
-                    <h2>Bienvenido!</h2>
+                <div class="card-header text-center d-flex justify-content-between">
+                    <h2>Bienvenido {{ nombre }}!</h2>
+                    <button class="btn btn-outline-danger" (click)="cerrarSession()" >Cerrar sesion</button>
                 </div>
-                <div class="row g-0 bb-1">
+                <div class="row g-0 bb-1" *ngFor="let item of lecciones">
+                    <div class="col-md-2">
+                        <img src="https://cdn.questionpro.com/userimages/site_media/cuestionarios-para-empresas.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.nombre }}</h5>
+                            <p class="card-text">{{ item.descripcion }}</p>
+                            <div class="card-text alert d-flex-button" [ngClass]="{'alert-success': item.status==1, 'alert-danger': item.status==0}" role="alert">
+                                <p class="mt-2">{{ ( item.status==0 ) ? 'Sin contestar' : 'Completado' }}</p>
+                                <button type="button" class="btn btn-outline-dark" *ngIf="item.status==0" routerLink="/lecciones/{{ item.id }}">Contestar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row g-0 bb-1">
                     <div class="col-md-2">
                         <img src="https://cdn.questionpro.com/userimages/site_media/cuestionarios-para-empresas.png" class="img-fluid rounded-start" alt="...">
                     </div>
@@ -17,7 +33,6 @@
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam officiis nesciunt veritatis nisi voluptatum ipsum obcaecati, in quasi placeat dolore ipsam quos voluptas fugiat veniam odio illum dolor vel sapiente!</p>
                             <div class="card-text alert alert-success d-flex-button" role="alert">
                                 <p class="mt-2">Completado</p>
-                                <!-- <button type="button" class="btn btn-outline-dark" disabled>Contestar</button> -->
                             </div>
                         </div>
                     </div>
@@ -47,12 +62,11 @@
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam officiis nesciunt veritatis nisi voluptatum ipsum obcaecati, in quasi placeat dolore ipsam quos voluptas fugiat veniam odio illum dolor vel sapiente!</p>
                             <div class="alert alert-danger d-flex-button" role="alert">
                                 <p class="mt-2">Desactivado</p>
-                                <!-- <button type="button" class="btn btn-outline-dark">Contestar</button> -->
                                 <button type="button" class="btn btn-outline-dark" disabled>Contestar</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
