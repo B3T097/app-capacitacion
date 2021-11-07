@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginCMSComponent } from './pages/CMS/login-cms/login-cms.component';
+import { UserEditComponent } from './pages/CMS/user-edit/user-edit.component';
 import { UsuariosComponent } from './pages/CMS/usuarios/usuarios.component';
 import { CuestionarioComponent } from './pages/users/cuestionario/cuestionario.component';
 import { LeccionComponent } from './pages/users/leccion/leccion.component';
@@ -31,12 +32,24 @@ const routes: Routes = [
     component: ResultadosComponent
   },
   {
+    path: 'CMS',
+    redirectTo: 'CMS/login'
+  },
+  {
     path: 'CMS/login',
     component: LoginCMSComponent
   },
   {
     path: 'CMS/usuarios',
     component: UsuariosComponent
+  },
+  {
+    path: 'CMS/agregarUsuario',
+    component: UserEditComponent
+  },
+  {
+    path: 'CMS/edit-user/:id',
+    component: UserEditComponent
   },
   {
     path: '**',
