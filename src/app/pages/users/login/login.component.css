@@ -5,3 +5,13 @@
 img{
     position: relative;
 }
+
+.hide{
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.show{
+    opacity: 1;
+    transition: all 0.5s;
+}
