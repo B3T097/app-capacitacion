@@ -3,9 +3,17 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
-  styleUrls: ['./user-edit.component.css']
+  styleUrls: [
+    './user-edit.component.css', 
+    '../../../../assets/css/estilos-cms.css',
+    '../../../../assets/css/all.min.css'
+  ]
 })
+
+
 export class UserEditComponent implements OnInit {
+
+  
 
   constructor() { }
 
