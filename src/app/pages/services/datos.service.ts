@@ -67,4 +67,15 @@ export class DatosService {
     }
     return datos;
   }
+
+  getResultados( idPregunta: number ){
+    let url: string = `${ this.baseUrl }respuestas/${ idPregunta }`;
+    return this.http.get<any>( url );
+  }
+
+  setStatus( idEncuesta:number, user:number, status: number ){
+    let url: string = `${ this.baseUrl }statusEncuesta/${ idEncuesta }/${ user }/${ status }`;
+    return this.http.get<any>( url );
+  }
+
 }
