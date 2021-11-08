@@ -29,9 +29,9 @@
               <br>
               <table class="table table-hover">
                 <tbody>
-                  <tr class="resp" *ngFor="let item of ['a','b','c','d'], index as i" [ngClass]="{'resp_marca': flag, '': !flag}" (click)="seleccioando()">
+                  <tr class="resp pregunta-{{ pregunta.idPregunta }}" *ngFor="let respuesta of pregunta.respuestas, index as i" id="respuesta-{{ respuesta.idRespuesta }}" (click)="seleccioando( 'respuesta-' + respuesta.idRespuesta, 'pregunta-' + pregunta.idPregunta )">
                     <td data-resp="0">
-                      <strong>{{item }}</strong>) Repuesta {{ i + 1 }}
+                      <strong>{{ letras[i] }}</strong>) {{ respuesta.resp }}
                     </td>
                   </tr>
                 </tbody>
@@ -44,7 +44,7 @@
         <tbody>
           <tr>
             <td>
-              <input class="btn btn-info btn-lg corregir" routerLink="/resultados/leccion-2" type="button" name="Corregir" id="Corregir" value="Guardar Repuestas">
+              <input class="btn btn-info btn-lg corregir" (click)="guardar()" type="button" name="Corregir" id="Corregir" value="Guardar Repuestas">
             </td>
           </tr>
         </tbody>

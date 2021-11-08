@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { QuestionsResponse } from '../interfaces/preguntas.interface';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DatosService } from '../../services/datos.service';
+import { Preguntas } from '../interfaces/preguntas.interface';
 
 @Component({
   selector: 'app-cuestionario',
@@ -7,79 +9,74 @@ import { QuestionsResponse } from '../interfaces/preguntas.interface';
   styleUrls: ['./cuestionario.component.css']
 })
 export class CuestionarioComponent implements OnInit {
+  // @ViewChild('respuesta') tableRow: ElementRef;
 
-  list: Number[] = [1, 2, 3, 4, 5];
-
-  flag: boolean = false;
-
-  preguntas: QuestionsResponse[] = [
-    {
-      "pregunta": "Pregunta 1",
-      "respuestas": {
-        "a": "Respuesta 1",
-        "b": "Respuesta 2",
-        "c": "Respuesta 3",
-        "d": "Respuesta 4"
-      }
-    },
-    {
-      "pregunta": "Pregunta 2",
-      "respuestas": {
-        "a": "Respuesta 5",
-        "b": "Respuesta 6",
-        "c": "Respuesta 7",
-        "d": "Respuesta 8"
-      }
-    },
-    {
-      "pregunta": "Pregunta 3",
-      "respuestas": {
-        "a": "Respuesta 9",
-        "b": "Respuesta 10",
-        "c": "Respuesta 11",
-        "d": "Respuesta 12"
-      }
-    },
-    {
-      "pregunta": "Pregunta 4",
-      "respuestas": {
-        "a": "Respuesta 12",
-        "b": "Respuesta 14",
-        "c": "Respuesta 15",
-        "d": "Respuesta 16"
-      }
-    },
-    {
-      "pregunta": "Pregunta 5",
-      "respuestas": {
-        "a": "Respuesta 17",
-        "b": "Respuesta 18",
-        "c": "Respuesta 19",
-        "d": "Respuesta 20"
-      }
-    }
-  ]
-
-  // roots: any[] = this.preguntas.map(function( value ) {
-  //   let response: any[] = [];
-  //   response[0] = value.pregunta;
-  //   let aux = JSON.parse( value.respuestas );
-  //   response[1] = aux.map(function( value2 ) {
-  //     let response2: any[] = [];
-  //     response[0] = value2.a;
-  //   })
-  // });
-
+  letras: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
+  numPreguntas: number = 0;
+  preguntas: Preguntas[] = [];
+  respuestas: any[] = [];
   
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(  
+    private activatedRoute: ActivatedRoute,
+    private routing: Router,
+    public service: DatosService,
+    private renderer: Renderer2
+  ) {
+    let params: any = this.activatedRoute.snapshot.params;
+    let idSeccion = params['leccion'];
+    this.service.getPreguntas( idSeccion ).subscribe(
+      resp => {
+        if (resp.success) {
+          this.preguntas = resp.data;
+          this.numPreguntas = this.preguntas.length;
+        } else {
+          this.routing.navigate(['/lecciones']);
+        }
+      }
+    );
   }
 
-  seleccioando(){
-    this.flag = !this.flag;
-    console.log( this.flag );
-    
+  ngOnInit(): void {
+    if ( !this.service.ValidarSession() ) {
+      this.routing.navigate(['/']);
+    }
+  }
+
+  seleccioando(id: any, idPregunta: any){
+    let respuesta: any = document.querySelector("#" + id);
+    let pregunta: any = document.getElementsByClassName(idPregunta);
+    for (let i = 0; i < pregunta.length; i++) {
+      const element = pregunta[i];
+      element.classList.remove("resp_marca");
+    }
+    respuesta.classList.add("resp_marca");
+
+    let existe: boolean = false;
+    let auxI: number = 0;
+
+    for (let i = 0; i < this.respuestas.length; i++) {
+      const element = this.respuestas[i];
+      if (element.idPregunta == idPregunta) {
+        existe = true;
+        auxI = i;
+      }
+    }
+
+    if ( !existe ) {
+      this.respuestas.push({
+        idPregunta: idPregunta,
+        idRespuesta: id
+      })
+    } else {
+      this.respuestas[auxI].idRespuesta = id;
+    }
+  }
+
+  guardar(){
+    if ( this.respuestas.length == this.numPreguntas ) {
+      this.service.saveRespuestas( this.respuestas );
+      this.routing.navigate(['/resultados']);
+    }
   }
 
 }

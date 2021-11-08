@@ -49,4 +49,22 @@ export class DatosService {
     let url: string = `${ this.baseUrl }leccion/${ id }`;
     return this.http.get<any>( url );
   }
+
+  getPreguntas( id:number ){
+    let url: string = `${ this.baseUrl }preguntas/${ id }`;
+    return this.http.get<any>( url );
+  }
+
+  saveRespuestas( respuestas: any[] ){
+    let response = JSON.stringify( respuestas );
+    sessionStorage.setItem('respuestas', response);
+  }
+
+  get respuestas(){
+    let datos: any[] = [];
+    if ( sessionStorage.getItem('respuestas') != null ) {
+      datos = JSON.parse( sessionStorage.getItem('respuestas') + '' );
+    }
+    return datos;
+  }
 }

@@ -1,18 +1,9 @@
-export interface QuestionsResponse {
-    pregunta:   string;
-    respuestas: {
-        [key: string]: string 
-    };
+export interface Preguntas {
+    idPregunta:     string;
+    pregunta:       string;
+    respuestas:     Respuestas[];
 }
 
-// export interface QuestionsResponse {
-//     pregunta:   string;
-//     respuestas: Respuesta[];
-// }
-
-// export interface Respuesta {
-//     a?: string;
-//     b?: string;
-//     c?: string;
-//     d?: string;
-// }
+export interface Respuestas {
+    [key: string]:  string;
+}

@@ -28,7 +28,7 @@ const routes: Routes = [
     component: LeccionComponent
   },
   {
-    path: 'resultados/:leccion',
+    path: 'resultados',
     component: ResultadosComponent
   },
   {

@@ -29,6 +29,10 @@ export class LeccionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if ( !this.service.ValidarSession() ) {
+      this.routing.navigate(['/']);
+    }
+
     let params: any = this.activatedRoute.snapshot.params;
     let idSeccion = params['leccion'];
     this.encuesta = idSeccion;
