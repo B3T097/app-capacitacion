@@ -11,12 +11,10 @@ import { LoginComponent } from './pages/users/login/login.component';
 import { LeccionesComponent } from './pages/users/lecciones/lecciones.component';
 import { LeccionComponent } from './pages/users/leccion/leccion.component';
 import { ResultadosComponent } from './pages/users/resultados/resultados.component';
-import { MenuLateralComponent } from './pages/CMS/componentes/menu-lateral/menu-lateral.component';
-import { HeaderComponent } from './pages/CMS/componentes/header/header.component';
 import { UsuariosComponent } from './pages/CMS/usuarios/usuarios.component';
-import { LoginCMSComponent } from './pages/CMS/login-cms/login-cms.component';
 import { ComponentesModule } from './pages/CMS/componentes/componentes.module';
 import { UserEditComponent } from './pages/CMS/user-edit/user-edit.component';
+import { CMSModule } from './pages/CMS/cms.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +32,8 @@ import { UserEditComponent } from './pages/CMS/user-edit/user-edit.component';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    ComponentesModule
+    ComponentesModule,
+    CMSModule
   ],
   providers: [],
   bootstrap: [AppComponent]

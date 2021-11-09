@@ -78,4 +78,25 @@ export class DatosService {
     return this.http.get<any>( url );
   }
 
+  VaidateLoginCMS( login: user ) {
+    return this.http.get<responseLogin>(`${ this.baseUrl }CMS/login/${ login.correo }/${ login.password }`);
+  }
+
+  ValidarSessionCMS(){
+    let session: string|null = sessionStorage.getItem('loginCMS');
+    if ( session != null && session == "true" ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  get NombreCMS(){
+    let nombre: string = '';
+    if ( sessionStorage.getItem('nameUserCMS') != null ) {
+      nombre = sessionStorage.getItem('nameUserCMS') + '';
+    }
+    return nombre;
+  }
+
 }
