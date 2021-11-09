@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosService } from 'src/app/pages/services/datos.service';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,12 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  nombre: string = '';
+  constructor(
+    private service: DatosService
+  ) {
+    this.nombre = this.service.NombreCMS;
+  }
 
   ngOnInit(): void {
   }
