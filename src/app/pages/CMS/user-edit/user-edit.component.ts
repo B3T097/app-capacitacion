@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DatosService } from '../../services/datos.service';
 
 @Component({
@@ -35,8 +35,26 @@ export class UserEditComponent implements OnInit {
 
   constructor(
     private service: DatosService,
-    private routing: Router
-  ) { }
+    private routing: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    let params: any = this.activatedRoute.snapshot.params;
+    let id = params['id'];
+    if ( id != undefined && id != null ) {
+      this.service.getUsuario( id ).subscribe(
+        response => {
+          console.log(response);
+          let datos: any = response.data[0];
+          this.usuario.id = datos.id;
+          this.usuario.nombre = datos.nombre;
+          this.usuario.correo = datos.correo;
+          this.usuario.password = datos.password;
+          this.usuario.rol = datos.rol;
+          this.usuario.area = datos.area;
+          this.usuario.puesto = datos.puesto;
+      });
+    }
+  }
 
   ngOnInit(): void {
   }

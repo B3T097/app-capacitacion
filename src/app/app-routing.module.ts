@@ -48,7 +48,7 @@ const routes: Routes = [
     component: UserEditComponent
   },
   {
-    path: 'CMS/edit-user/:id',
+    path: 'CMS/editarUsuario/:id',
     component: UserEditComponent
   },
   {

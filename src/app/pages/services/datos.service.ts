@@ -104,6 +104,11 @@ export class DatosService {
     return this.http.get<any>( url );
   }
 
+  getUsuario( id: number ){
+    let url: string = `${ this.baseUrl }CMS/user/${ id }`;
+    return this.http.get<any>( url );
+  }
+
   NewUsuario( usuario: any ){
     let url: string = `${ this.baseUrl }CMS/EditUser`;
     let formData = new FormData();
