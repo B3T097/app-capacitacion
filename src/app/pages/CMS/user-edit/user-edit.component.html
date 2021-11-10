@@ -20,38 +20,95 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="txtNombre">Nombre</label>
-                      <input type="text" class="form-control" id="txtNombre" name="txtNombre"/>
+                      <input
+                        #nombre
+                        type="text"
+                        class="form-control"
+                        id="txtNombre"
+                        name="txtNombre"
+                        [(ngModel)]="usuario.nombre"
+                      />
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="txtCorreo">Correo</label>
+                      <input
+                        #correo
+                        type="email"
+                        class="form-control"
+                        id="txtCorreo"
+                        name="txtCorreo"
+                        [(ngModel)]="usuario.correo"
+                      />
+                    </div>
+                  </div>
+
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="txtPWD">Contraseña</label>
-                      <input type="password" class="form-control" id="txtPWD" name="txtPWD"/>
+                      <input
+                        #pwd
+                        type="password"
+                        class="form-control"
+                        id="txtPWD"
+                        name="txtPWD"
+                        [(ngModel)]="usuario.password"
+                      />
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="txtConfirmPWD">Confirmar contraseña</label>
-                      <input type="password" class="form-control" id="txtConfirmPWD" name="txtConfirmPWD"/>
+                      <label for="txtCorreo">ROL</label>
+                      <select
+                        #rol
+                        name="txtRol"
+                        id="txtRol"
+                        class="form-control"
+                        [(ngModel)]="usuario.rol"
+                      >
+                        <option value="2">Normal</option>
+                        <option value="1">Admin</option>
+                      </select>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="txtArea">Area</label>
-                      <input type="password" class="form-control" id="txtArea" name="txtArea"/>
+                      <input
+                        #area
+                        type="text"
+                        class="form-control"
+                        id="txtArea"
+                        name="txtArea"
+                        [(ngModel)]="usuario.area"
+                      />
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="txtPuesto">Puesto</label>
-                      <input type="password" class="form-control" id="txtPuesto" name="txtPuesto"/>
+                      <input
+                        #puesto
+                        type="text"
+                        class="form-control"
+                        id="txtPuesto"
+                        name="txtPuesto"
+                        [(ngModel)]="usuario.puesto"
+                      />
                     </div>
                   </div>
                   <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button class="btn btn-primary" (click)="guardar()">
+                      Guardar
+                    </button>
                   </div>
                 </div>
               </form>
+
+              <div class="alert alert-danger hide" [ngClass]="{show: alerta}" role="alert">
+                  Ocurrio un error inesperado
+              </div>
             </div>
           </div>
         </div>

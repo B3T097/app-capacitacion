@@ -104,4 +104,17 @@ export class DatosService {
     return this.http.get<any>( url );
   }
 
+  NewUsuario( usuario: any ){
+    let url: string = `${ this.baseUrl }CMS/EditUser`;
+    let formData = new FormData();
+    formData.append('id', usuario.id );
+    formData.append('nombre', usuario.nombre );
+    formData.append('correo', usuario.correo );
+    formData.append('pwd', usuario.password );
+    formData.append('rol', usuario.rol );
+    formData.append('area', usuario.area );
+    formData.append('puesto', usuario.puesto );
+    return this.http.post<any>( url, formData );
+  }
+
 }
