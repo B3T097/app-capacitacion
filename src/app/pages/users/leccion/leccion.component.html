@@ -7,7 +7,7 @@
                     <h2>LECCION 2: Titulo de la lección</h2>
                 </div>
                 <div class="card-body">
-                    <div class="text-center ratio ratio-16x9">
+                    <div class="text-center ratio ratio-16x9" *ngIf="leccion.video != ''">
                         <iframe width="700" height="415" [src]="urlSafe"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -16,8 +16,7 @@
                     <div class="container mt-5">
                         <div class="row">
                             <div class="col-2"></div>
-                            <div class="col-8">
-                                {{ leccion.leccion }}
+                            <div class="col-8" [innerHTML]="leccion.leccion">
                             </div>
                         </div>
                         <div class="row mt-5">
