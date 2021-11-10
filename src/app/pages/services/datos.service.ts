@@ -99,4 +99,9 @@ export class DatosService {
     return nombre;
   }
 
+  getUsuarios(){
+    let url: string = `${ this.baseUrl }CMS/users`;
+    return this.http.get<any>( url );
+  }
+
 }

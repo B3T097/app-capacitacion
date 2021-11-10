@@ -34,42 +34,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Jose Alberto</td>
-                      <td>2</td>
-                      <td>1</td>
+                    <tr *ngFor="let usuario of usuarios">
+                      <td>{{ usuario.nombre }}</td>
+                      <td>{{ usuario.contestadas }}</td>
+                      <td>{{ usuario.faltantes }}</td>
                       <td class="d-flex justify-content-center">
                         <a class="btn btn-primary btn-circle btn-sm" routerLink="CMS/ediarUsuario">
-                          <i class="far fa-eye"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Itzel</td>
-                      <td>3</td>
-                      <td>0</td>
-                      <td class="d-flex justify-content-center">
-                        <a class="btn btn-primary btn-circle btn-sm">
-                          <i class="far fa-eye"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Adriana</td>
-                      <td>2</td>
-                      <td>1</td>
-                      <td class="d-flex justify-content-center">
-                        <a class="btn btn-primary btn-circle btn-sm">
-                          <i class="far fa-eye"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Joel</td>
-                      <td>1</td>
-                      <td>2</td>
-                      <td class="d-flex justify-content-center">
-                        <a class="btn btn-primary btn-circle btn-sm">
                           <i class="far fa-eye"></i>
                         </a>
                       </td>
