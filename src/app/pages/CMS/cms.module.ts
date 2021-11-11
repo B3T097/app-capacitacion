@@ -12,6 +12,7 @@ import {RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { CKEditorModule } from 'ckeditor4-angular';
+import { EditPreguntasComponent } from './edit-preguntas/edit-preguntas.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CKEditorModule } from 'ckeditor4-angular';
     UsuariosComponent,
     UserEditComponent,
     ListEncuestasComponent,
-    EditEncuestasComponent
+    EditEncuestasComponent,
+    EditPreguntasComponent
   ],
   imports: [
     CommonModule,

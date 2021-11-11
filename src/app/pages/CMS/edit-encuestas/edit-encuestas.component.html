@@ -26,20 +26,14 @@
                   <div class="col-md-12 mt-2">
                     <div class="form-group">
                       <label for="">Descripción</label>
-                      <textarea
-                        class="form-control"
-                        cols="10"
-                        rows="3"
-                        name="descripcion"
-                        [(ngModel)]="encuesta.descripcion"
-                      ></textarea>
+                      <textarea class="form-control" cols="10" rows="3" name="descripcion" [(ngModel)]="encuesta.descripcion" ></textarea>
                     </div>
                   </div>
                   <div class="col-md-12 mt-5">
                     <h3>Leccion</h3>
                   </div>
                   <div class="col-md-12 mt-2">
-                    <ckeditor (change)="onChange($event)"></ckeditor>
+                    <ckeditor [(ngModel)]="encuesta.leccion.texto" name="texto"></ckeditor>
                   </div>
                   <div class="col-md-12 mt-2">
                     <div class="form-group">
@@ -54,29 +48,19 @@
 
                   <div class="col-md-12 mt-2">
                       <label for="">Seleccione los usuarios que tendran acceso a esta Encuesta</label>
-                    <select
-                      class="form-select"
-                      multiple
-                      aria-label="multiple select example"
-                      name="usuarios"
-                      [(ngModel)]="encuesta.usuarios"
-                    >
+                    <select class="form-select" multiple aria-label="multiple select example" name="usuarios" [(ngModel)]="encuesta.usuarios" >
                       <option value="{{ usuario.id }}" *ngFor="let usuario of usuarios">{{ usuario.nombre }}</option>
                     </select>
                   </div>
                   <div class="col-md-12">
-                    <button class="btn btn-primary" (click)="guardar()">
+                    <button class="btn btn-primary mt-3" (click)="guardar()">
                       Guardar
                     </button>
                   </div>
                 </div>
               </form>
 
-              <div
-                class="alert alert-danger hide mt-3"
-                [ngClass]="{ show: alerta }"
-                role="alert"
-              >
+              <div class="alert alert-danger hide mt-3" [ngClass]="{ show: alerta }" role="alert" >
                 Ocurrio un error inesperado
               </div>
             </div>
