@@ -1,1 +1,88 @@
-<p>edit-encuestas works!</p>
+<!-- Page Wrapper -->
+<div id="wrapper" class="d-flex">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column" style="width: 100%">
+    <!-- Main Content -->
+    <div id="content" style="overflow: auto;height: 100vh;">
+      <app-header></app-header>
+
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="h3 mb-2 text-gray-800">Encuesta</h1>
+              <p class="mb-4 d-flex justify-content-between">
+                Aqui puede agregar o editar sus encuestas
+              </p>
+              <form id="frmUsuario">
+                <div class="row">
+                  <div class="col-md-12 mt-2">
+                    <div class="form-group">
+                      <label for="">Nombre Encuesta</label>
+                      <input type="text" class="form-control" name="nombre" [(ngModel)]="encuesta.nombre"/>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mt-2">
+                    <div class="form-group">
+                      <label for="">Descripción</label>
+                      <textarea
+                        class="form-control"
+                        cols="10"
+                        rows="3"
+                        name="descripcion"
+                        [(ngModel)]="encuesta.descripcion"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mt-5">
+                    <h3>Leccion</h3>
+                  </div>
+                  <div class="col-md-12 mt-2">
+                    <ckeditor (change)="onChange($event)"></ckeditor>
+                  </div>
+                  <div class="col-md-12 mt-2">
+                    <div class="form-group">
+                      <label for="">idVideo</label>
+                      <input type="text" class="form-control" name="video" [(ngModel)]="encuesta.leccion.video" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mt-5">
+                    <h3>Usuarios</h3>
+                  </div>
+
+                  <div class="col-md-12 mt-2">
+                      <label for="">Seleccione los usuarios que tendran acceso a esta Encuesta</label>
+                    <select
+                      class="form-select"
+                      multiple
+                      aria-label="multiple select example"
+                      name="usuarios"
+                      [(ngModel)]="encuesta.usuarios"
+                    >
+                      <option value="{{ usuario.id }}" *ngFor="let usuario of usuarios">{{ usuario.nombre }}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <button class="btn btn-primary" (click)="guardar()">
+                      Guardar
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <div
+                class="alert alert-danger hide mt-3"
+                [ngClass]="{ show: alerta }"
+                role="alert"
+              >
+                Ocurrio un error inesperado
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

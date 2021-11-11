@@ -127,4 +127,21 @@ export class DatosService {
     return this.http.get<any>( url );
   }
 
+  getEncuesta( id: number ){
+    let url: string = `${ this.baseUrl }CMS/encuesta/${ id }`;
+    return this.http.get<any>( url );
+  }
+
+  NewEncuesta( encuesta: any ){
+    let url: string = `${ this.baseUrl }CMS/EditEncuesta`;
+    let formData = new FormData();
+    formData.append('id', encuesta.id );
+    formData.append('nombre', encuesta.nombre );
+    formData.append('descripcion', encuesta.descripcion );
+    formData.append('leccion', encuesta.leccion.texto );
+    formData.append('video', encuesta.leccion.video );
+    formData.append('usuarios', encuesta.usuarios );
+    return this.http.post<any>( url, formData );
+  }
+
 }

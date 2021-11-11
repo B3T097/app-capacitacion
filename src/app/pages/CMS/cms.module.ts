@@ -11,6 +11,7 @@ import { HeaderComponent } from './componentes/header/header.component';
 import {RouterModule} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+import { CKEditorModule } from 'ckeditor4-angular';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    CKEditorModule
   ]
 })
 export class CMSModule { }
