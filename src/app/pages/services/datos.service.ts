@@ -122,4 +122,9 @@ export class DatosService {
     return this.http.post<any>( url, formData );
   }
 
+  getEncuestas(){
+    let url: string = `${ this.baseUrl }CMS/encuestas`;
+    return this.http.get<any>( url );
+  }
+
 }

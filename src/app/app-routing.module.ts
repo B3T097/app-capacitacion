@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditEncuestasComponent } from './pages/CMS/edit-encuestas/edit-encuestas.component';
+import { ListEncuestasComponent } from './pages/CMS/list-encuestas/list-encuestas.component';
 import { LoginCMSComponent } from './pages/CMS/login-cms/login-cms.component';
 import { UserEditComponent } from './pages/CMS/user-edit/user-edit.component';
 import { UsuariosComponent } from './pages/CMS/usuarios/usuarios.component';
@@ -50,6 +52,18 @@ const routes: Routes = [
   {
     path: 'CMS/editarUsuario/:id',
     component: UserEditComponent
+  },
+  {
+    path: 'CMS/encuestas',
+    component: ListEncuestasComponent
+  },
+  {
+    path: 'CMS/agregarEncuesta',
+    component: EditEncuestasComponent
+  },
+  {
+    path: 'CMS/editarEncuesta/:id',
+    component: EditEncuestasComponent
   },
   {
     path: '**',
