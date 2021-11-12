@@ -144,5 +144,12 @@ export class DatosService {
     return this.http.post<any>( url, formData );
   }
   
+  savePreguntas( preguntas: any, encuesta: number ){
+    let url: string = `${ this.baseUrl }CMS/updatePreguntas`;
+    let formData = new FormData();
+    formData.append( 'encuesta', encuesta.toString() );
+    formData.append( 'preguntas', JSON.stringify( preguntas ) );
+    return this.http.post<any>( url, formData );
+  }
 
 }

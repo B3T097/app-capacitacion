@@ -1,0 +1,22 @@
+.hide{
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.show{
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.iconPlus{
+    background-color: #3737b3;
+    width: min-content;
+    border-radius: 36px;
+    padding: 6px;
+    color: #ffffff;
+    font-size: 1.3rem;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    cursor: pointer;
+}

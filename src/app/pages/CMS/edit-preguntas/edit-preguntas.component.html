@@ -1,1 +1,62 @@
-<p>edit-preguntas works!</p>
+<!-- Page Wrapper -->
+<div id="wrapper" class="d-flex">
+    <app-menu-lateral></app-menu-lateral>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" style="width: 100%">
+      <!-- Main Content -->
+      <div id="content" style="overflow: auto;height: 100vh;">
+        <app-header></app-header>
+  
+        <div class="container-fluid">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h1 class="h3 mb-2 text-gray-800">Preguntas</h1>
+                <p class="mb-4 d-flex justify-content-between">
+                  
+                </p>
+                <form id="frmUsuario">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="accordion" id="accordionExample">
+                          <div class="accordion-item mb-2" *ngFor="let pregunta of preguntas; let i = index">
+                            <h2 class="accordion-header" id="">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseOne' + pregunta.idPregunta" aria-expanded="true" [attr.aria-controls]="'collapseOne' + pregunta.idPregunta">
+                                {{ i + 1 }} - {{ pregunta.pregunta }}
+                              </button>
+                            </h2>
+                            <div [attr.id]="'collapseOne' + pregunta.idPregunta" class="accordion-collapse collapse" aria-labelledby="" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <div class="mb-3">
+                                  <label for="pregunta-{{ pregunta.idPregunta }}" class="form-label">Pregunta</label>
+                                  <input type="text" class="form-control" id="pregunta-{{ pregunta.idPregunta }}" placeholder="Pregunta" [name]="'elem'+pregunta.idPregunta" [(ngModel)]="pregunta.pregunta">
+                                </div>
+                                <div class="mb-3 d-flex" *ngFor="let respuesta of pregunta.respuestas; let e = index">
+                                  <label for="pregunta-{{ pregunta.idPregunta }}" class="form-label mt-2" style="margin-left: 2rem; margin-right: 2rem;">{{ letras[e] }})</label>
+                                  <input type="text" class="form-control" id="pregunta-{{ pregunta.idPregunta }}" placeholder="Pregunta" [name]="'resp' + respuesta.idRespuesta" [(ngModel)]="respuesta.resp">
+                                </div>
+                                <div class="agregarResp d-flex" (click)="agregarRespuesta( i )"><i class="fas fa-plus iconPlus"></i></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="agregarPreg d-flex" (click)="agregarPregunta()"><i class="fas fa-plus iconPlus" style="background-color: #be5d25;"></i></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                      <button class="btn btn-primary mt-3" (click)="guardar()">
+                        Guardar
+                      </button>
+                    </div>
+                  </div>
+                </form>
+  
+                <div class="alert alert-danger hide mt-3" [ngClass]="{ show: alerta }" role="alert" >
+                  Ocurrio un error inesperado
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  

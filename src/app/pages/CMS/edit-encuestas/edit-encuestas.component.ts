@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CKEditor4 } from 'ckeditor4-angular';
 import { DatosService } from '../../services/datos.service';
 
 @Component({
@@ -8,7 +7,7 @@ import { DatosService } from '../../services/datos.service';
   templateUrl: './edit-encuestas.component.html',
   styleUrls: ['./edit-encuestas.component.css']
 })
-export class EditEncuestasComponent implements OnInit {
+export class EditEncuestasComponent {
 
   alerta: boolean = false;
   encuesta: any = {
@@ -34,10 +33,8 @@ export class EditEncuestasComponent implements OnInit {
     if ( id != undefined && id != null ) {
       this.service.getEncuesta( id ).subscribe(
         response => {
-          console.log(response);
           let datos: any = response.data.encuesta[0];
           let users: any = response.data.usuarios;
-          console.log(users);
           
           this.encuesta.id = datos.id;
           this.encuesta.nombre = datos.nombre;
@@ -47,8 +44,6 @@ export class EditEncuestasComponent implements OnInit {
           this.encuesta.usuarios = users.map( function(user: any){
             return user.id;
           });
-          console.log(this.encuesta);
-          
       });
     }
 
@@ -58,9 +53,6 @@ export class EditEncuestasComponent implements OnInit {
           this.usuarios = response.data;
         }
       });
-  }
-
-  ngOnInit(): void {
   }
 
   guardar(){
