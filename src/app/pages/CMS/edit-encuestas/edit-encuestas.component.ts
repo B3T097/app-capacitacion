@@ -60,7 +60,9 @@ export class EditEncuestasComponent {
     this.service.NewEncuesta( this.encuesta )
       .subscribe( response => {
         console.log(response);
-        
+        if ( response.success ) {
+          this.routing.navigate(['/CMS/encuestas']);
+        }
       });
   }
 
