@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 
 import { CKEditorModule } from 'ckeditor4-angular';
 import { EditPreguntasComponent } from './edit-preguntas/edit-preguntas.component';
+import { EditRespuestasComponent } from './edit-respuestas/edit-respuestas.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EditPreguntasComponent } from './edit-preguntas/edit-preguntas.componen
     UserEditComponent,
     ListEncuestasComponent,
     EditEncuestasComponent,
-    EditPreguntasComponent
+    EditPreguntasComponent,
+    EditRespuestasComponent
   ],
   imports: [
     CommonModule,
