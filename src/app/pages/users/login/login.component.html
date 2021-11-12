@@ -21,16 +21,17 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group form-group-custom mb-4">
-                                            <input type="text" class="form-control" name="correo" id="username" required="" [(ngModel)]="login.correo">
                                             <label for="username">Correo</label>
+                                            <input type="text" class="form-control" name="correo" id="username" required="" [(ngModel)]="login.correo">
                                         </div>
 
                                         <div class="form-group form-group-custom mb-4">
-                                            <input type="password" class="form-control" name="password" id="password" required="" [(ngModel)]="login.password">
                                             <label for="password">Password</label>
+                                            <input type="password" class="form-control" name="password" id="password" required="" [(ngModel)]="login.password">
                                         </div>
-                                        <div class="mt-4">
-                                            <button class="btn btn-info btn-block waves-effect waves-light" (click)="entrar()" type="submit">Acceder</button>
+                                        <div class="mt-4 d-flex justify-content-center align-items-center flex-column">
+                                            <button class="btn btn-info btn-block waves-effect waves-light" (click)="entrar()" type="submit" style="color: #fff;">Acceder</button>
+                                            <a [routerLink]="['/CMS']" routerLinkActive="router-link-active" class="mt-4">Ir al cms</a>
                                         </div>
                                         <div class="mt-4 text-center">
                                             <!-- <a href="auth-register.html" class="text-muted"><i class="mdi mdi-account-circle mr-1"></i> Create an account</a> -->
