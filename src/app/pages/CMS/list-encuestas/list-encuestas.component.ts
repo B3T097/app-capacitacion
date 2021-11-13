@@ -32,8 +32,6 @@ export class ListEncuestasComponent implements OnInit {
   }
 
   eliminarEncuesta( id:number ){
-    console.log(id);
-    
     this.service.deleteEncuesta( id )
       .subscribe(arg => {
         if ( arg.success ) {
