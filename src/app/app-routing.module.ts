@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditEncuestasComponent } from './pages/CMS/edit-encuestas/edit-encuestas.component';
 import { EditPreguntasComponent } from './pages/CMS/edit-preguntas/edit-preguntas.component';
+import { EditRespuestasComponent } from './pages/CMS/edit-respuestas/edit-respuestas.component';
 import { ListEncuestasComponent } from './pages/CMS/list-encuestas/list-encuestas.component';
 import { LoginCMSComponent } from './pages/CMS/login-cms/login-cms.component';
 import { UserEditComponent } from './pages/CMS/user-edit/user-edit.component';
@@ -69,6 +70,10 @@ const routes: Routes = [
   {
     path: 'CMS/editarPreguntas/:id',
     component: EditPreguntasComponent
+  },
+  {
+    path: 'CMS/respuestas/:id',
+    component: EditRespuestasComponent
   },
   {
     path: '**',

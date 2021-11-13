@@ -152,4 +152,17 @@ export class DatosService {
     return this.http.post<any>( url, formData );
   }
 
+  getRespuestas( leccion: number ){
+    let url: string = `${ this.baseUrl }CMS/respuestas/${ leccion }`;
+    return this.http.get<any>( url );
+  }
+
+  saveRespuestasCorrectas( encuesta: number, respuestas: any ){
+    let url: string = `${ this.baseUrl }CMS/updateRespuestas`;
+    let formData = new FormData();
+    formData.append( 'encuesta', encuesta.toString() );
+    formData.append( 'respuestas', JSON.stringify( respuestas ) );
+    return this.http.post<any>( url, formData );
+  }
+
 }

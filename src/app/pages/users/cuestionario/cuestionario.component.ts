@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatosService } from '../../services/datos.service';
 import { Preguntas } from '../interfaces/preguntas.interface';
@@ -19,8 +19,7 @@ export class CuestionarioComponent implements OnInit {
   constructor(  
     private activatedRoute: ActivatedRoute,
     private routing: Router,
-    public service: DatosService,
-    private renderer: Renderer2
+    public service: DatosService
   ) {
     let params: any = this.activatedRoute.snapshot.params;
     let idSeccion = params['leccion'];

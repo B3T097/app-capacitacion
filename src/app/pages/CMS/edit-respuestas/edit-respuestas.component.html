@@ -1,1 +1,52 @@
-<p>edit-respuestas works!</p>
+<!-- Page Wrapper -->
+<div id="wrapper" class="d-flex">
+    <app-menu-lateral></app-menu-lateral>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" style="width: 100%;">
+      <!-- Main Content -->
+      <div id="content">
+        <app-header></app-header>
+  
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Respuestas Correctas</h1>
+          <p class="mb-4">
+            Aquí puede seleccionar las respuesatas correctas
+          </p>
+  
+          <!-- Content Row -->
+          <div class="row">
+            <table class="table">
+                <tbody>
+                  <tr *ngFor="let pregunta of preguntas, index as a">
+                    <td class="preg" data-points="1">
+                      <h4>{{ a + 1 }}) {{ pregunta.pregunta }}</h4>
+                      <span class="msg_marcas resalta"></span>
+                      <br>
+                      <table class="table table-hover">
+                        <tbody>
+                          <tr class="resp pregunta-{{ pregunta.idPregunta }}"
+                          *ngFor="let respuesta of pregunta.respuestas, index as i" 
+                          id="respuesta-{{ respuesta.idRespuesta }}" 
+                          (click)="seleccioando( 'respuesta-' + respuesta.idRespuesta, 'pregunta-' + pregunta.idPregunta )">
+                            <td data-resp="0">
+                              <strong>{{ letras[i] }}</strong>) {{ respuesta.resp }}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+            <div class="col-md-11 d-flex justify-content-end">
+                <button class="btn btn-primary mt-3" (click)="guardar()">
+                    Guardar
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
