@@ -165,4 +165,9 @@ export class DatosService {
     return this.http.post<any>( url, formData );
   }
 
+  deleteEncuesta( id:number ){
+    let url: string = `${ this.baseUrl }CMS/deleteEncuesta/${ id }`;
+    return this.http.get<any>( url );
+  }
+
 }

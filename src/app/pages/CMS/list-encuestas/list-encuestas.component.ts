@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DatosService } from '../../services/datos.service';
 
 @Component({
@@ -15,12 +16,11 @@ export class ListEncuestasComponent implements OnInit {
   encuestas: any[] = [];
 
   constructor(
-    private service: DatosService
+    private service: DatosService,
+    private routing: Router
   ) {
     this.service.getEncuestas().subscribe(
       response => {
-        console.log(response);
-        
         if (response.success) {
           this.encuestas = response.data
         };
@@ -29,6 +29,24 @@ export class ListEncuestasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  eliminarEncuesta( id:number ){
+    console.log(id);
+    
+    this.service.deleteEncuesta( id )
+      .subscribe(arg => {
+        if ( arg.success ) {
+          this.service.getEncuestas().subscribe(
+            response => {
+              if (response.success) {
+                this.encuestas = response.data
+              };
+            }
+          );
+        }
+      });
+    
   }
 
 }
