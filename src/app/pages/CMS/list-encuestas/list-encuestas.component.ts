@@ -32,18 +32,25 @@ export class ListEncuestasComponent implements OnInit {
   }
 
   eliminarEncuesta( id:number ){
-    this.service.deleteEncuesta( id )
+    var r = confirm("¿Realmente desea eliminar esta encuesta?");
+    if (r == true) {
+      this.service.deleteEncuesta( id )
       .subscribe(arg => {
         if ( arg.success ) {
           this.service.getEncuestas().subscribe(
             response => {
               if (response.success) {
+                alert( 'Se elimino la encuesta' );
                 this.encuestas = response.data
               };
             }
           );
         }
       });
+    } else {
+      alert('Calcelada');
+    }
+    
     
   }
 
